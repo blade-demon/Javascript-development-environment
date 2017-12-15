@@ -5,7 +5,7 @@ import WebpackMd5Hash from 'webpack-md5-hash';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
-    devtool: 'source-map',
+    devtool: 'cheap-source-map',
     entry: {
         vendor: path.resolve(__dirname, 'src/vendor'),
         main: path.resolve(__dirname, 'src/index')
@@ -53,20 +53,16 @@ export default {
     module: {
         rules: [{
             test: /\.css$/,
-            use: [{
-                    loader: "style-loader"
-                },
-                {
-                    loader: "css-loader",
-                    options: {
-                        modules: true
-                    }
-                }
-            ]
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: "css-loader"
+            })
         }, {
             test: /\.js$/,
-            exclude: /node_modules/,
-            loader: "babel-loader"
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: 'babel-loader'
+            }
         }]
     }
 }

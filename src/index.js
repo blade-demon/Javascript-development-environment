@@ -33,8 +33,8 @@ getUsers().then(result => {
     });
 });
 
-// /* eslint-disable no-unused-vars */
-// /* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 // var sleep = function(time) {
 //     return new Promise(function(resolve, reject) {
 //         setTimeout(function() {

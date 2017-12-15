@@ -5,7 +5,7 @@ import WebpackMd5Hash from 'webpack-md5-hash';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
-    devtool: 'cheap-source-map',
+    devtool: 'source-map',
     entry: {
         vendor: path.resolve(__dirname, 'src/vendor'),
         main: path.resolve(__dirname, 'src/index')

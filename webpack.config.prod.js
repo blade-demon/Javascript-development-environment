@@ -29,6 +29,10 @@ export default {
             name: 'vendor'
         }),
 
+        new webpack.SourceMapDevToolPlugin({
+            filename: '[name].[chunkhash].js.map'
+        }),
+
         // Create html file that includes reference to bundled JS
         new HtmlWebpackPlugin({
             template: 'src/index.html',
